@@ -29,24 +29,45 @@ displayData = (data) => {
 
 fetchData();
 
-document.addEventListener('submit', async function(e){
+let d = new Date();
+let month = d.getMonth();
+let date = d.getDate()
+let year = d.getFullYear()
+
+
+let countryConfirmed = document.querySelector(".country_confirmed");
+let countryDeaths = document.querySelector(".country_deaths");
+let countryRecovered = document.querySelector(".country_recovered");
+let countryActive = document.querySelector(".country_active");
+let resultsHeading = document.querySelector(".country_h2");
+
+document.addEventListener('submit', async function (e) {
     e.preventDefault();
-  await  fetch("https://api.covid19api.com/live/country/south-africa/status/confirmed/date/2020-03-21T13:13:30Z")
+    let country = document.querySelector("#country_name").value;
+    
+    if (country.length == 0){
+        return;
+    }
+    
+    await fetch(`https://api.covid19api.com/live/country/${country}/status/confirmed`)
         .then(result => result.json())
         .then(data => displaySearch(data))
         .catch(error => console.log(`error ${error}`))
+
 })
 
+//check to insure the dates are from past 3 months or 100 days
 displaySearch = (data) => {
-    for ( i = 0; i < data.length; i++) {
-        if (i === data.length-1) {
-            console.log(data[i].Confirmed)
-            console.log(data[i].Deaths)
-            console.log(data[i].Recovered)
-            console.log(data[i].Active)
+    console.log(data);
+    for (i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+            resultsHeading.innerHTML = data[i].Country;
+            countryConfirmed.innerHTML = data[i].Confirmed;
+            countryDeaths.innerHTML = data[i].Deaths;
+            countryRecovered.innerHTML = data[i].Recovered;
+            countryActive.innerHTML = data[i].Active;
         }
     }
-    
 }
 
 

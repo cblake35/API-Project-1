@@ -47,11 +47,23 @@
         <h1>Search Covid-19 statistics by country</h1>
         <form>
             <label>Search statistics by country</label>
-            <input type="text" name="country_name" id="country_name" placeholder="Country">
+            <input type="text" name="country_name" id="country_name" value="" placeholder="country">
             <input type="submit" value="submit"> 
         </form>
         <div class="results_container">
-            
+            <div class="results_heading">
+                <h2 class="country_h2">Country Name</h2>
+            </div>
+            <div>
+                <p>Confirmed:</p>
+                <span class="country_confirmed"> count</span>
+                <p>Deaths:</p>
+                <span class="country_deaths"> count</span>
+                <p>Recovered:</p>
+                <span class="country_recovered"> count</span>
+                <p>Active:</p>
+                <span class="country_active"> count</span>
+            </div>
         </div>
     </section>
 
