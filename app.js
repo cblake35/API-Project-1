@@ -29,27 +29,23 @@ displayData = (data) => {
 
 fetchData();
 
-let d = new Date();
-let month = d.getMonth();
-let date = d.getDate()
-let year = d.getFullYear()
-
-
-let countryConfirmed = document.querySelector(".country_confirmed");
-let countryDeaths = document.querySelector(".country_deaths");
-let countryRecovered = document.querySelector(".country_recovered");
-let countryActive = document.querySelector(".country_active");
 let resultsHeading = document.querySelector(".country_h2");
+let countryConfirmed = document.querySelector(".country_confirmed");
+let countryNewConfirmed = document.querySelector(".country_newConfirmed");
+let countryDeaths = document.querySelector(".country_deaths");
+let countryNewDeaths = document.querySelector(".country_newDeaths");
+let countryRecovered = document.querySelector(".country_recovered");
+let countryNewRecovered = document.querySelector(".country_newRecovered");
+let country = document.querySelector("#country_name");
 
 document.addEventListener('submit', async function (e) {
     e.preventDefault();
-    let country = document.querySelector("#country_name").value;
-    
-    if (country.length == 0){
+
+    if (country.length == 0) {
         return;
     }
-    
-    await fetch(`https://api.covid19api.com/live/country/${country}/status/confirmed`)
+
+    await fetch(`https://api.covid19api.com/summary`)
         .then(result => result.json())
         .then(data => displaySearch(data))
         .catch(error => console.log(`error ${error}`))
@@ -59,17 +55,20 @@ document.addEventListener('submit', async function (e) {
 //check to insure the dates are from past 3 months or 100 days
 displaySearch = (data) => {
     console.log(data);
-    for (i = 0; i < data.length; i++) {
-        if (i === data.length - 1) {
-            resultsHeading.innerHTML = data[i].Country;
-            countryConfirmed.innerHTML = data[i].Confirmed;
-            countryDeaths.innerHTML = data[i].Deaths;
-            countryRecovered.innerHTML = data[i].Recovered;
-            countryActive.innerHTML = data[i].Active;
+    console.log(data.Countries[5].Country);
+    for (i = 0; i < data.Countries.length; i++) {
+        // let countryData = data.countries[i].Country;
+        // let countryString = countryData.;
+        if (data.Countries[i].Country.toLowerCase() == country.value.toLowerCase()) {
+            resultsHeading.innerHTML = data.Countries[i].Country;
+            countryConfirmed.innerHTML = data.Countries[i].TotalConfirmed;
+            countryNewConfirmed.innerHTML = data.Countries[i].NewConfirmed;
+            countryDeaths.innerHTML = data.Countries[i].TotalDeaths;
+            countryNewDeaths.innerHTML = data.Countries[i].NewDeaths;
+            countryRecovered.innerHTML = data.Countries[i].TotalRecovered;
+            countryNewRecovered.innerHTML = data.Countries[i].NewRecovered;
+        } else {
+            console.log("countries does not match");
         }
     }
 }
-
-
-
-
