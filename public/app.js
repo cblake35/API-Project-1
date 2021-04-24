@@ -7,9 +7,6 @@ let totalDeaths = document.querySelector(".total_deaths");
 let newRecovered = document.querySelector(".new_recovered");
 let totalRecovered = document.querySelector(".total_recovered");
 
-
-
-
 async function fetchData() {
     await fetch(`${baseUrl}summary`)
         .then(result => result.json())
@@ -25,7 +22,6 @@ displayData = (data) => {
     newRecovered.innerHTML = data.Global.NewRecovered
     totalRecovered.innerHTML = data.Global.TotalRecovered;
 }
-
 
 fetchData();
 
