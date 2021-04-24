@@ -1,7 +1,8 @@
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+body section  {
+    font-family: 'Oswald', sans-serif;
     margin: 0;
     width: 100%;
+
 }
 
 #nav_wrapper {
@@ -10,24 +11,50 @@ body {
     z-index: 1;
 }
 
+.navbar {
+    background-color: #314e52;
+}
+
+.container-fluid a {
+    color: #d3843a;
+}
+
+.container-fluid a:hover {
+    color: #f5ed79;
+}
+
 #intro {
     height: 100vh;
-    background-color: #06beb2;
+    background-image: url(assets/covid-pic.jpeg);
     position: relative;
+}
+
+.background_wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .75;
 }
 
 .intro_wrapper {
     position: absolute;
-    top:40%;
-    left:35%;
+    left: 50%;
+    margin-left: -280px;
+    top: 50%;
+    margin-top: -50px;
 }
 
 .intro_wrapper h1 {
-    font-size: 5rem;
+    font-size: 5.5rem;
+    color: #d3843a;
+    z-index: 10;
 }
 
 .intro_wrapper p {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    color: #f7f6e7;
+    z-index: 10;
 }
 #world_stats {
     width: 100%;
@@ -39,20 +66,68 @@ body {
 
 #world_stats h2{
     font-size: 3rem;
+    color: #d3843a;
+}
+
+.stats_wrapper {
+    font-size: 1.5rem;
+    padding: 40px 0 40px 0;
+    color: #314e52;
+}
+
+.stats_wrapper p {
+    font-weight: 500;
+}
+
+.stats_wrapper span {
+    font-weight: 300;
+}
+
+
+.stats_wrapper span {
+    color: #d3843a;
 }
 
 #country_search {
    text-align: center;
+   background-color: #f7f6e7;
+   padding: 50px 0 50px 0;
+}
 
+#country_search h1 {
+    color: #d3843a;
+    padding: 10px;
+}
+
+.form_label {
+    color: #314e52;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.sub_button {
+    border-style: none;
+    padding: 3px 15px 3px 15px;
+    color: #f7f7f7;
+    background-color: #314e52;
+    border-radius: 6px;
+    box-shadow: 0px 0px 7px -3px #888888;
+    margin: 0 0 0 5px;
+}
+
+.sub_button:hover {
+    background-color:#d3843a;
+    color: #314e52;
 }
 
 .results_container {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
+    background-color: #f7f7f7;
     box-shadow: 0px 0px 10px -3px #888888;
-    margin: 0 30% 0 30%;
+    margin: 50px 40% 50px 40%;
+    border-radius: 10px;
 }
 
 .results_container span {
@@ -61,8 +136,38 @@ body {
 
 .results_container p {
     margin: 0;
+    font-weight: 500;
+}
+
+.results_container span {
+    font-weight: 300;
 }
 .results_heading {
-    background-color: blueviolet;
+    position: relative;
+    background-color: #314e52;
+    margin: 0 0 10px 0;
+    color: #d3843a;
     width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 0 5px 0;
+}
+
+.country_results {
+    font-size: 1.2rem;
+}
+
+.country_results span {
+    padding-bottom: 10px;
+    color: #d3843a;
+}
+
+footer {
+    background-color: #314e52;
+    text-align: center;
+}
+
+footer p {
+    color: #d3843a;
+    margin: 0;
+    font-size: .9rem;
 }

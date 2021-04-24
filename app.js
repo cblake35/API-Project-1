@@ -29,6 +29,7 @@ displayData = (data) => {
 
 fetchData();
 
+let countryResults = document.querySelector(".results_container");
 let resultsHeading = document.querySelector(".country_h2");
 let countryConfirmed = document.querySelector(".country_confirmed");
 let countryNewConfirmed = document.querySelector(".country_newConfirmed");
@@ -41,7 +42,7 @@ let country = document.querySelector("#country_name");
 document.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    if (country.length == 0) {
+    if (country.length === 0) {
         return;
     }
 
@@ -67,6 +68,7 @@ displaySearch = (data) => {
             countryNewDeaths.innerHTML = data.Countries[i].NewDeaths;
             countryRecovered.innerHTML = data.Countries[i].TotalRecovered;
             countryNewRecovered.innerHTML = data.Countries[i].NewRecovered;
+            countryResults.style.display = 'flex';
         } else {
             console.log("countries does not match");
         }
