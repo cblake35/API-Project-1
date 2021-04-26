@@ -49,13 +49,11 @@ document.addEventListener('submit', async function (e) {
 
 })
 
-//check to insure the dates are from past 3 months or 100 days
+//display data and show results for each country
 displaySearch = (data) => {
     console.log(data);
     console.log(data.Countries[5].Country);
     for (i = 0; i < data.Countries.length; i++) {
-        // let countryData = data.countries[i].Country;
-        // let countryString = countryData.;
         if (data.Countries[i].Country.toLowerCase() == country.value.toLowerCase()) {
             resultsHeading.innerHTML = data.Countries[i].Country;
             countryConfirmed.innerHTML = data.Countries[i].TotalConfirmed;
