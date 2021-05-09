@@ -26,6 +26,7 @@ body section  {
 #intro {
     height: 100vh;
     background-image: url(assets/covid-pic.jpeg);
+    background-size: cover;
     position: relative;
 }
 
